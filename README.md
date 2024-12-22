@@ -1,0 +1,1 @@
+This Quiz Application contains a set of curated questions and their answers and checks for the correctness of the answer given by the user. It navigates through the questions using dynamic programming.
