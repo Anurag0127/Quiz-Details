@@ -1,0 +1,67 @@
+## Defining the questions and answers with list of dictionaries.
+quiz_data = [
+    {
+        "question": "Who is the father of computer?",
+        "options": ["A) Lady Augasta", "B) Charles Babbage", "C) Pascal", "D) Anderma"],
+        "answer": "B"
+    },
+    {
+        "question": "Who was the first human to go to space?",
+        "options": ["A) Yuri Gagarin", "B) Buzz Aldrin", "C) Neil Armstrong", "D) Alan Shepard"],
+        "answer": "A"
+    },
+    {
+        "question": "Which dynasty belons to te golden age in medieval India ?",
+        "options": ["A) Maurya Empire", "B) Chola Dynasty", "C) Nanda Dynasty", "D ) Gupta Empire"],
+        "answer": "D"
+    },
+    {
+        "question": "Who was the first Indian to win an individual Olympic medal?",
+        "options": ["A) PT Usha", "B) KD Jadhav", "C) Milkha Singh", "D) Leander Paes"],
+        "answer": "B"
+    },
+    {
+        "question": "Which famous personality is also known as the iron man of India?",
+        "options": ["A) Subhas Chandra", "B) Lala Lajpat", "C) Sardar Patel", "D) Bhagat Singh"],
+        "answer": "C"
+    }
+]
+
+
+def display_question(question_data):
+    """Display a single question and its options."""
+    print(question_data["question"])
+    for option in question_data["options"]:
+        print(option)
+
+
+def get_user_answer():
+    """Get the user's answer and validate it."""
+    answer = input("Your answer (A, B, C, or D): ").strip().upper()
+    while answer not in ["A", "B", "C", "D"]:
+        print("Invalid choice. Please choose A, B, C, or D.")
+        answer = input("Your answer (A, B, C, or D): ").strip().upper()
+    return answer
+
+
+def run_quiz(quiz_data):
+    """Run the quiz game."""
+    score = 0
+    total_questions = len(quiz_data)
+
+    for question_data in quiz_data:
+        display_question(question_data)
+        user_answer = get_user_answer()
+
+        if user_answer == question_data["answer"]:
+            print("Correct!\n")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer was {question_data['answer']}.\n")
+
+    print(f"You scored {score} out of {total_questions}.")
+
+
+print("Welcome to the Quiz Game!")
+run_quiz(quiz_data)
+print("Thank you for playing!")
